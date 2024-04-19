@@ -3,15 +3,24 @@
 An extended FFTLog code for efficiently computing integrals containing:
 
 - one Bessel function (i.e. Hankel transform)
-  $$ F(y) = \int \frac{\mathrm{d}x}{x} f(x) J_{l}(xy) $$
+
+$$ F(y) = \int \frac{\mathrm{d}x}{x} f(x) J_{l}(xy) $$
+
 - one spherical Bessel function or its square
-  $$ F(y) = \int \frac{\mathrm{d}x}{x} f(x) j_{l}(xy) ~~\text{or}~~ F(y) = \int \frac{\mathrm{d}x}{x} f(x) j_{l}^2(xy) $$
+
+$$ F(y) = \int \frac{\mathrm{d}x}{x} f(x) j_{l}(xy) ~~\text{or}~~ F(y) = \int \frac{\mathrm{d}x}{x} f(x) j_{l}^2(xy) $$
+
 - one 1st or 2nd-derivative of spherical Bessel function
-  $$ F(y) = \int \frac{\mathrm{d}x}{x} f(x) j_{l}^{(n)}(xy) $$
+
+$$ F(y) = \int \frac{\mathrm{d}x}{x} f(x) j_{l}^{(n)}(xy) $$
+
 - two spherical Bessel function of same/different order, same/different parameter
-  $$ F(y) = \int \frac{\mathrm{d}x}{x} f(x) j_{l_1}(xy) j_{l_2}(\beta xy) $$
+
+$$ F(y) = \int \frac{\mathrm{d}x}{x} f(x) j_{l_1}(xy) j_{l_2}(\beta xy) $$
+
 - two derivative of spherical Bessel function, same/different parameter
-  $$ F(y) = \int \frac{\mathrm{d}x}{x} f(x) j_{l_1}'(xy) j_{l_2}'(\beta xy) $$
+
+$$ F(y) = \int \frac{\mathrm{d}x}{x} f(x) j_{l_1}'(xy) j_{l_2}'(\beta xy) $$
 
 ## Installation
 
