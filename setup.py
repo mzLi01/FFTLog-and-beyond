@@ -7,9 +7,12 @@ from distutils.command.clean import clean as _clean
 from subprocess import check_call, CalledProcessError
 
 
-def make_fftlogx():
+def make_fftlogx(debug=False):
+    make_cmd = ['make']
+    if debug:
+        make_cmd.append('debug')
     try:
-        check_call(['make'])
+        check_call(make_cmd)
     except CalledProcessError as e:
         raise RuntimeError(f"Could not build cfftlog, return code: {e.returncode}")
     check_call(['cp', 'build/libfftlogx.so', 'fftlogx/'])
@@ -29,13 +32,13 @@ class Distribution(_distribution):
 
 class Build(_build):
     def run(self):
-        make_fftlogx()
+        make_fftlogx(self.distribution.debug)
         _build.run(self)
 
 
 class Develop(_develop):
     def run(self):
-        make_fftlogx()
+        make_fftlogx(self.distribution.debug)
         _develop.run(self)
 
 
@@ -52,7 +55,7 @@ class Clean(_clean):
 
 setup(
     name='fftlogx',
-    version='0.1.0',
+    version='1.0.0',
     description='Python wrapper for the generalized FFTLog algorithm',
     url='https://github.com/xfangcosmo/FFTLog-and-beyond',
     packages=find_packages(exclude=['test']),

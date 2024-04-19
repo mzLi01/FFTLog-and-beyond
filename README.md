@@ -2,13 +2,18 @@
 
 An extended FFTLog code for efficiently computing integrals containing:
 
-* one Bessel function (i.e. Hankel transform); or
+- one Bessel function (i.e. Hankel transform)
+  $$ F(y) = \int \frac{\mathrm{d}x}{x} f(x) J_{l}(xy) $$
+- one spherical Bessel function or its square
+  $$ F(y) = \int \frac{\mathrm{d}x}{x} f(x) j_{l}(xy) ~~\text{or}~~ F(y) = \int \frac{\mathrm{d}x}{x} f(x) j_{l}^2(xy) $$
+- one 1st or 2nd-derivative of spherical Bessel function
+  $$ F(y) = \int \frac{\mathrm{d}x}{x} f(x) j_{l}^{(n)}(xy) $$
+- two spherical Bessel function of same/different order, same/different parameter
+  $$ F(y) = \int \frac{\mathrm{d}x}{x} f(x) j_{l_1}(xy) j_{l_2}(\beta xy) $$
+- two derivative of spherical Bessel function, same/different parameter
+  $$ F(y) = \int \frac{\mathrm{d}x}{x} f(x) j_{l_1}'(xy) j_{l_2}'(\beta xy) $$
 
-* one spherical Bessel function; or
-
-* one 1st or 2nd-derivative of spherical Bessel function.
-
-v2.0: fftlogx
+## Installation
 
 The code is written in C ([./src/](src)) and provides a python wrapper ([./fftlogx/](fftlogx)). To use it, run
 ```shell
@@ -16,13 +21,9 @@ python setup.py install
 ```
 to construct install the interface, then follow the test notebook provided in [/test/](test) to import and use it.
 
------
+## Citation
 
-The older version (v1.0):
-
-The code is *independently* written and tested in python ([./python/fftlog.py](python/fftlog.py)) and C ([./cfftlog/](cfftlog)).
-
-See more details in [Notes.pdf](Notes.pdf)
+Original work:
 
 Please cite [Fang et al (2019); arXiv:1911.11947](https://arxiv.org/abs/1911.11947), if you find the algorithm or the code useful to your research.
 

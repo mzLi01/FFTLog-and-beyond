@@ -6,3 +6,6 @@ fftlogx.egg-info/
 # binary
 __pycache__/
 *.so
+*.out
+
+.vscode/

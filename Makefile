@@ -1,8 +1,9 @@
 MDIR := $(shell pwd)
 
 CC = gcc
-LIB_LINK = -lgsl -lgslcblas -lm -lfftw3
+LIB_LINK = -lgsl -lgslcblas -lm -lfftw3 -lflint
 FLAGS = -fPIC -Wall -O3 -ffast-math
+FLAGS_DEBUG = -fPIC -Wall -ffast-math -g -O0
 BUILD_DIR = $(MDIR)/build
 LIB = libfftlogx
 SRC_DIR = $(MDIR)/src
@@ -15,6 +16,9 @@ SRC = $(addprefix $(SRC_DIR)/,$(_SRC))
 
 
 all: $(LIB).so
+
+debug: FLAGS = $(FLAGS_DEBUG)
+debug: $(LIB).so
 
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
